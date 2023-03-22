@@ -23,17 +23,12 @@ import {
 import { isProduction } from "@yext/pages/util";
 import "../index.css";
 import Favicon from "../assets/images/yext-favicon.ico";
-import About from "../components/About";
 import Banner from "../components/Banner";
-import Breadcrumbs from "../components/Breadcrumbs";
-import Details from "../components/Details";
 import DirectoryStateGrid from "../components/DirectoryStateGrid";
 import { directoryStateGridFields } from "../components/DirectoryStateGrid";
-import Hours from "../components/Hours";
 import PageLayout from "../components/PageLayout";
-import StaticMap from "../components/StaticMap";
 import EditTool from "../components/EditTool";
-import { formatPhoneNumber, formatPhoneNumberIntl } from 'react-phone-number-input'
+import Breadcrumbs from "../components/Breadcrumbs";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -66,7 +61,7 @@ export const config: TemplateConfig = {
  * NOTE: To preview production URLs locally, you must return document.slug from this function
  * and ensure that each entity has the slug field pouplated.
  */
-export const getPath: GetPath<TemplateProps> = ({document}) => {
+export const getPath: GetPath<TemplateProps> = ({ document }) => {
   return `${document.slug.toString()}`;
 };
 
@@ -146,13 +141,13 @@ const State: Template<TemplateRenderProps> = ({
   const {
     name,
     description,
-    slug,
     siteDomain,
     c_addressRegionDisplayName,
     dm_directoryParents,
     dm_directoryChildren
   } = document;
 
+  console.log(dm_directoryChildren)
 
   return (
     <>
@@ -164,7 +159,7 @@ const State: Template<TemplateRenderProps> = ({
             name={c_addressRegionDisplayName ? c_addressRegionDisplayName : name}
             description={description}
             directoryChildren={dm_directoryChildren}
-            relativePrefixToRoot={relativePrefixToRoot} 
+            relativePrefixToRoot={relativePrefixToRoot}
           />
         </div>
       </PageLayout>

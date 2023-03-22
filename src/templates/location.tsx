@@ -25,12 +25,12 @@ import "../index.css";
 import Favicon from "../assets/images/yext-favicon.ico";
 import About from "../components/About";
 import Banner from "../components/Banner";
-import Breadcrumbs from "../components/Breadcrumbs";
 import Details from "../components/Details";
 import Hours from "../components/Hours";
 import PageLayout from "../components/PageLayout";
 import StaticMap from "../components/StaticMap";
 import EditTool from "../components/EditTool";
+import BreadCrumbs from "../components/Breadcrumbs";
 
 
 /**
@@ -173,11 +173,9 @@ const Location: Template<TemplateRenderProps> = ({
     address,
     hours,
     mainPhone,
-    geocodedCoordinate,
     services,
     description,
     siteDomain,
-    paymentOptions,
     dm_directoryParents,
   } = document;
 
@@ -186,7 +184,7 @@ const Location: Template<TemplateRenderProps> = ({
       <PageLayout>
         <Banner name={name} address={address} />
         <div className="centered-container">
-          <Breadcrumbs breadcrumbs={dm_directoryParents} baseUrl={relativePrefixToRoot} />
+          <BreadCrumbs breadcrumbs={dm_directoryParents} baseUrl={relativePrefixToRoot} />
           <div className="grid gap-x-10 gap-y-10 md:grid-cols-2">
             <Details address={address} phone={mainPhone} services={services} />
             {hours && <Hours title={"Restaurant Hours"} hours={hours} />}

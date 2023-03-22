@@ -40,13 +40,13 @@ export const config: TemplateConfig = {
     },
   },
 };
- 
+
 /**
  * Defines the path that the generated file will live at for production.
 */
-export const getPath: GetPath<TemplateProps> = ({document}) => {
+export const getPath: GetPath<TemplateProps> = ({ document }) => {
   return document.slug;
- };
+};
 
 /**
  * This allows the user to define a function which will take in their template
@@ -54,7 +54,7 @@ export const getPath: GetPath<TemplateProps> = ({document}) => {
  * will be used to generate the inner contents of the HTML document's <head> tag.
  * This can include the title, meta tags, script tags, etc.
 */
-export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({relativePrefixToRoot, path, document}): HeadConfig => {
+export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({ relativePrefixToRoot, path, document }): HeadConfig => {
   return {
     title: "Home Page",
     charset: "UTF-8",
@@ -89,36 +89,34 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({relativePrefi
  * them in the src/templates folder as this is specific for true template files).
  */
 const Index: Template<TemplateRenderProps> = ({
-    relativePrefixToRoot,
-    path,
-    document,
-    __meta
-  }) => {
+  relativePrefixToRoot,
+  path,
+  document,
+  __meta
+}) => {
   const {
     _site,
     name,
-    dm_directoryChildren, 
+    dm_directoryChildren,
   } = document;
 
 
-   return (
+  return (
     <>
       <PageLayout>
         <Banner name={"Turtlehead Tacos"} />
         <div className="centered-container">
           <div className="section space-y-14 px-10">
-              <DirectoryRootGrid 
-                name={"Turtlehead Tacos"}
-                description={`Turtlehead Tacos operates in the following states.`}
-                directoryChildren={dm_directoryChildren}
-                relativePrefixToRoot={relativePrefixToRoot} 
-              />
+            <DirectoryRootGrid
+              name={"Turtlehead Tacos"}
+              directoryChildren={dm_directoryChildren}
+              relativePrefixToRoot={relativePrefixToRoot}
+            />
           </div>
         </div>
       </PageLayout>
     </>
-   );
- };
- 
- export default Index;
- 
+  );
+};
+
+export default Index;

@@ -1,16 +1,16 @@
 import * as React from "react";
 import { twMerge } from "tailwind-merge";
 
-type Props = {
+export interface CtaProps {
   buttonText: string;
   url?: string;
   style?: string;
 };
 
-const Cta = ({ buttonText, url, style } : Props) => {
+const Cta = ({ buttonText, url, style }: CtaProps) => {
   return (
     <a
-      key={buttonText}
+      key={url}
       href={url}
       className={twMerge(
         "py-4 px-6 text-base font-bold rounded-lg hover:scale-[1.02] duration-250",

@@ -48,7 +48,7 @@
           "id": "dm_directoryChildren"
         },
         {
-          "id": "dm_directoryChildrenCount"
+          "id": "dm_childEntityIds"
         },
         {
           "id": "dm_directoryManagerId"

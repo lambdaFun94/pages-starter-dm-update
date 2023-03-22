@@ -4,28 +4,29 @@ import { ChevronRightIcon, HomeIcon } from '@heroicons/react/20/solid';
 import { Link } from "@yext/pages/components";
 import classNames from "classnames";
 
-interface Breadcrumb {
+export interface BreadCrumbProps {
   name: string;
-  meta?: string;
   slug?: string;
-  index: number;
+  breadcrumbs?: Array<BreadCrumbProps>;
+  className?: string;
+  separator?: ReactNode;
+  baseUrl: string;
 }
 
-type Breadcrumbs = {
+export interface BreadCrumbsProps {
   name?: any;
-  breadcrumbs?: Array<Breadcrumb>;
+  breadcrumbs?: Array<BreadCrumbProps>;
   className?: string;
   separator?: ReactNode;
   baseUrl: string;
 };
 
-const Breadcrumb = (props: Breadcrumb) => {
+const Breadcrumb = (props: BreadCrumbProps) => {
   const { name, slug } = props;
 
   if (slug) {
     return (
       <Link
-        className=""
         href={slug}
       >
         <span className="font-bold hover:underline hover:cursor-pointer">{name}</span>
@@ -36,8 +37,8 @@ const Breadcrumb = (props: Breadcrumb) => {
   return <span className="Breadcrumbs-label">{name}</span>;
 };
 
-const Breadcrumbs = (props:Breadcrumbs) => {
-  const { 
+const BreadCrumbs = (props: BreadCrumbsProps) => {
+  const {
     name,
     breadcrumbs,
     className,
@@ -63,14 +64,12 @@ const Breadcrumbs = (props:Breadcrumbs) => {
                     <Breadcrumb
                       name={<HomeIcon className="h-5 w-5" aria-hidden="true" />}
                       slug={isLast ? "" : baseUrl + slug}
-                      index={idx}
                       {...props}
                     />
                   ) : (
                     <Breadcrumb
                       name={name}
                       slug={isLast ? "" : baseUrl + slug}
-                      index={idx}
                       {...props}
                     />
                   )}
@@ -89,4 +88,4 @@ const Breadcrumbs = (props:Breadcrumbs) => {
   );
 };
 
-export default Breadcrumbs;
+export default BreadCrumbs;

@@ -1,15 +1,8 @@
 import * as React from "react";
+import { Address } from "../types/Address";
 import Cta from "./Cta";
 
-export type Address = {
-  line1: string;
-  city: string;
-  region: string;
-  postalCode: string;
-  countryCode: string;
-};
-
-type Banner = {
+export interface BannerProps {
   name?: string;
   address?: Address;
 };
@@ -26,7 +19,7 @@ const renderPrettyAddress = (address?: Address) => {
   );
 };
 
-const Banner = (props: Banner) => {
+const Banner = (props: BannerProps) => {
   const { name, address } = props;
 
   return (
