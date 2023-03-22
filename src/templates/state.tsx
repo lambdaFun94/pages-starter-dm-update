@@ -103,8 +103,6 @@ const State: Template<TemplateRenderProps> = ({
     dm_directoryChildren
   } = document;
 
-  console.log(dm_directoryChildren)
-
   return (
     <>
       <PageLayout>

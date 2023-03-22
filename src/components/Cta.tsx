@@ -9,18 +9,19 @@ export interface CtaProps {
 
 const Cta = ({ buttonText, url, style }: CtaProps) => {
   return (
-    <a
-      key={url}
-      href={url}
-      className={twMerge(
-        "py-4 px-6 text-base font-bold rounded-lg hover:scale-[1.02] duration-250",
-        style
-      )}
-      target=""
-      rel="noopener noreferrer"
-    >
-      {buttonText}
-    </a>
+    <>
+      <a
+        href={url}
+        className={twMerge(
+          "py-4 px-6 text-base font-bold rounded-lg hover:scale-[1.02] duration-250",
+          style
+        )}
+        target=""
+        rel="noopener noreferrer"
+      >
+        {buttonText}
+      </a>
+    </>
   );
 };
 

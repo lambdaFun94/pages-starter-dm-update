@@ -21,7 +21,6 @@ const DirectoryStateGrid = ({ name, description, directoryChildren, relativePref
     });
     childrenDivs = directoryChildren.map((child: DirectoryChild) => (
       <div key={child.slug}>
-        {console.log('child entity ids', child.dm_childEntityIds)}
         <a key="uRL" href={relativePrefixToRoot + child.slug} className="font-bold text-2xl text-blue-700 hover:underline">
           {child.name} ({child.dm_childEntityIds?.length || 0})
         </a>
