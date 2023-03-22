@@ -5,18 +5,6 @@ import { DirectoryParent } from "../types/DirectoryParent";
 import { DirectoryChild } from "../types/DirectoryChild";
 
 
-export const directoryCityGridFields = [
-    "c_addressRegionDisplayName",
-    "dm_directoryParents.name",
-    "dm_directoryParents.slug",
-    "dm_directoryParents.meta",
-    "dm_directoryParents.c_addressRegionDisplayName",
-    "dm_directoryChildren.name",
-    "dm_directoryChildren.address",
-    "dm_directoryChildren.mainPhone",
-    "dm_directoryChildren.slug"
-];
-
 export interface DirectoryGridProps {
     name?: string;
     description?: string;

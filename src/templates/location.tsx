@@ -105,8 +105,6 @@ export const getRedirects: GetRedirects<TemplateProps> = ({ document }) => {
  * This can include the title, meta tags, script tags, etc.
  */
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
-  relativePrefixToRoot,
-  path,
   document,
 }): HeadConfig => {
   return {
@@ -165,7 +163,6 @@ export const transformProps: TransformProps<any> = async (data) => {
  */
 const Location: Template<TemplateRenderProps> = ({
   relativePrefixToRoot,
-  path,
   document,
 }) => {
   const {

@@ -19,42 +19,17 @@ import Card from "../components/Card";
 import { ExternalImage } from "../types/ExternalImage";
 import Favicon from "../assets/images/yext-favicon.ico";
 
-/**
- * Not required depending on your use case.
- */
 export const config: TemplateConfig = {
-  // The name of the feature. If not set the name of this file will be used (without extension).
-  // Use this when you need to override the feature name.
   name: "turtlehead-tacos",
 };
 
-/**
- * Defines the path that the generated file will live at for production.
- *
- * NOTE: This currently has no impact on the local dev path. Local dev urls currently
- * take on the form: featureName/entityId
- */
 export const getPath: GetPath<ExternalImageData> = () => {
-    return `index.html`;
+  return `index.html`;
 };
 
 
-/**
- * A local type for transformProps. This could live in src/types but it's generally
- * best practice to keep unshared types local to their usage.
- */
 type ExternalImageData = TemplateProps & { externalImage: ExternalImage };
 
-/**
- * Used to either alter or augment the props passed into the template at render time.
- * This function will be run during generation and pass in directly as props to the default
- * exported function.
- *
- * This can be used when data needs to be retrieved from an external (non-Knowledge Graph)
- * source. This example calls a public API and returns the data.
- *
- * If the page is truly static this function is not necessary.
- */
 export const transformProps: TransformProps<ExternalImageData> = async (
   data
 ) => {
@@ -69,17 +44,7 @@ type ExternalImageRenderData = TemplateRenderProps & {
   externalImage: ExternalImage;
 };
 
-/**
- * This allows the user to define a function which will take in their template
- * data and produce a HeadConfig object. When the site is generated, the HeadConfig
- * will be used to generate the inner contents of the HTML document's <head> tag.
- * This can include the title, meta tags, script tags, etc.
- */
-export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
-  relativePrefixToRoot,
-  path,
-  document,
-}): HeadConfig => {
+export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (): HeadConfig => {
   return {
     title: "Static Page Example",
     charset: "UTF-8",
@@ -109,9 +74,6 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
  * The props passed in here are the direct result from `transformProps`.
  */
 const Static: Template<ExternalImageRenderData> = ({
-  relativePrefixToRoot,
-  path,
-  document,
   externalImage,
 }) => {
   return (

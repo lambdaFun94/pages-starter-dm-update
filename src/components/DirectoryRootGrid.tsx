@@ -2,14 +2,6 @@ import * as React from "react";
 import { DirectoryChild } from "../types/DirectoryChild";
 
 
-export const directoryRootGridFields = [
-  "dm_directoryChildren.name",
-  "dm_directoryChildren.slug",
-  "dm_directoryChildren.c_addressRegionDisplayName",
-  "dm_directoryChildren.dm_childEntityIds"
-];
-
-
 interface DirectoryRootProps {
   name?: string;
   description?: string;
